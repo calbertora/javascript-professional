@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platzi video</title>
+  <link
+      rel="stylesheet"
+      href="./assets/index.css"
+    />
+</head>
+<body>
+  <header>
+    <h1>PlatziMediaPlayer.js</h1>
+    <p>An extensible media player.</p>
+  </header>
+
+  <main class="container">
+    <video class="movie">
+      <source src="./assets/platzi-para-todos.mp4" />
+    </video>
+
+    <button>Play/Pause</button>
+  </main>
+
+  <script>
+    const video = document.querySelector("video");
+    const button = document.querySelector("button");
+
+    function  MediaPlayer(config) {
+      this.media = config.el;
+    }
+
+    MediaPlayer.prototype.play = function() {
+      this.media.paused
+        ? this.media.play()
+        : this.media.pause()  
+    };
+
+    const  player = new  MediaPlayer({ el:  video });
+    button.onclick = () =>  player.play();
+    
+  </script>
+</body>
+</html>
